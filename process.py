@@ -4,7 +4,7 @@ import math
 import json
 
 # 读取Excel（强制所有字段为字符串）
-df = pd.read_excel("scholarship_data.xlsx", dtype=str)
+df = pd.read_excel("scholarship_data_2024.xlsx", dtype=str)
 
 
 def safe_split(value, delimiter='/', default=('', '')):
@@ -56,3 +56,4 @@ for i in range(math.ceil(len(processed_data) / chunk_size)):
     chunk = processed_data[i * chunk_size: (i + 1) * chunk_size]
     with open(f'data/chunk_{i:03d}.json', 'w', encoding='utf-8') as f:
         json.dump(chunk, f, ensure_ascii=False, indent=2)
+        print(f'data/chunk_{i:03d}.json is stored!')
